@@ -167,3 +167,84 @@ O PHP de fato é uma das linguagens de programação mais populares da atualidad
 - Descompactar o Arquivo do PHP na pasta C:src\php (para descompactar usar o zip = melhor) => nunca salvar arquivos ou programas na raiz do sistema (c:)
 - Adicionar a Pasta do PHP(C:\src\php) as Variáveis de Ambiente do Sistema (PATH)
 - Verificar a Instalação rodando o comando *php --version*
+
+## É uma resposta a requisição do usuario.
+
+#### Criando minha primeira aplicação em PHP
+
+1. Amtes de começar a codar:
+
+- Prepara meu VSCODE
+   - Criar um profile proprio para PHP
+   - Instalar Extensões necessarias para transformar o VScode em uma ide:
+   - PHP intelephense => permite a utilização de snippets
+   - PHP Debug => Ajuda a encontrar erros de codigo
+   - PHP Cs Fixer => Formatação de codigos (identação)
+   - PHP Server => ajuda na criação de um servidor local para PHP
+   - Desabilitamos o PHP nativo do VScode (@builtin PPHP)
+
+2. Hello world (muito importante)
+
+#### Estudo de Variaveis e constantes em PHP
+
+Declarar variaveis é alocar um espaço na memoria que permite a inclusão e manipulação de dados.
+
+**Variaveis**
+
+- devem ser declaradas usando "$" antes do nome da variavel
+- São não tipadas ( não precisa declarar o tipo dela na criação)
+- podem ser string, numericas ( integrar e float), booleanas e nulas. não permite declaração de undefined
+- Usar o "declare(Strict_types=1);" na primeira linha do arquivo; => blinda o sistema contra conflitos de tipos de variaveis
+
+**constantes**
+
+- Não podem ser mudadas ou redeclaradas após a criação
+
+- pode ser criada usando "const" ou "define"
+
+- não permite interpoloção   
+
+#### Estudo de operadores 
+
+**Aritimeticos**: São usados para realizar calculos
+
+| operador | Nome | Exemplo | Resultado |
+| - | - | - | - |
+| + | Adição | 10+5 | 15 |
+| - | Subtração | 10-5 | 5 |
+| * | Multiplicação | 10*5 | 50 |
+| / | Divisão | 10/5 | 2 |
+| % | Modulo(Resto) | 10%3 | 1 (10 div 3 dá 3 , sobra 1) |
+| ** | Expoente | 2**3 | 8(2 elevado a 3) |
+
+obs: O Operador % é o melhor amigo de um programador, permite ordenar listas e organizar fila de pilhas
+
+**Relacionais**:  Permite o Relacionamento entre dois ou mais valores, o resultado de uma operação é sempre uma booleana (verdadeiro ou falso).
+
+| Operador | Significado | Exemplo | Resultado |
+| - |  - | - | - |
+| > | Maior que | 18 > 18 | false |
+| >= | Maior ou igual a | 18 >= 18 | true |
+| < | Menor que | 10 < 20 | true |
+| <= | Menor ou igual a | 10 <=5 | false |
+| == | Comparação de valor | "10" ==10 | true | 
+| === | Comparação Estrita | "10"===10 | false |
+| != | Diferente | "10"!=10 | false |
+| !== | Estritamente Diferente | "10"!==10 | true | 
+
+
+**logicos**: Permite a Combinção entre sentnças.
+
+- Operador AND (E) => && : para o resultado ser verdadeiro, Todas as Combinações precisam ser verdadeira
+    - true && true => true
+    - true && false => false
+
+- Operador OR (OU) => || : para o resultado ser verdadeiro, Basta apenas uma condição ser verdadeira
+    - false || true => true
+    - false || false => false
+
+- Operador NOT (Não) => ! : Inverte a lógica da Operação, 
+    - !true => false
+    - !false => true
+
+
