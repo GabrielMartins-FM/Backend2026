@@ -289,9 +289,9 @@ graph LR
     b --> |true| c[ação 1]
     b --> |false| D[Ação 2]
 
-    ```
+```
 
-    ```php
+```php
 
     if($valorCompra > 100){
     $valorFinal = $valorCompra * 0.9;
