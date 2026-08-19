@@ -301,5 +301,226 @@ graph LR
 
 ```
 
+##### Operadores Ternários
+
+Um atalho para a estrutura condicional `if/else, normalmente escrito em uma única linha de código.
+
+` condição ? verdadeira : falsa `
+
+Perfeito para decisões curtas de uma linha de comando
+
+Exemplo: Verificar se a pessoa é maior de idade (18);
+
+```php
+
+$idade = 10;
+//O formato é (Condição) ? Verdadeiro : Falso;
+
+$status = ($idade>=18) ? "Maior de Idade" : "Menor de Idade";
+$status2 = ($idade>=60) ? "Idoso" : ($idade>=18) ? "Adulto" : "Criança" ;
+
+echo $status //
+
+```
+
+##### Expressão Condicional `match` (PHP 8)
+
+No mercado atual de PHP, não se uma mais uma `Switch/Case` para chegar valores fixos, usa-se o `match`. Ele compara um valor e retoran diretamente o resultado caso atenda a condição.
+
+```mermaid
+
+graph TD
+    A[Valor] --> B{Condicional}
+    B --> C[Ação 1]
+    B --> D[Ação 2]
+    B --> E[Ação 3]
+    B --> F[Ação 4]
+    B --> G[Ação ...]
+    B --> H[Ação default]
+
+```
+Exemplo: Selecionar o Dia da Semana a partir de um Nº 
+
+```php
+
+$diaSemanaNum = date("W"); // pega o Dia da Semana em formato numérico
+
+$nomeDiaSemana = match($diaSemanaNu) {
+    "0" => "Domingo",
+    "1" => "Segunda",
+    "2" => "Terça",
+    "3" => "Quarta",
+    "4" => "Quinta",
+    "5" => "Sexta",
+    "6" => "Sábado",
+    "default" => "Dia Inválido"
+};
+
+echo " Hoje é : $nomeDiaSemana";
+
+```
+
+---
+
+##### Laços de Repetição
+
+Um laço de repetição faz com que um bloco de código rode várias vezes até que uma condição mande parar. 
+
+- O Laço `while` (Enquanto)
+
+Ele verifica se a condição é verdadeira ANTES de entrar no laço. Ideal quando você não sabe exatamente quantas vezes vai rodar o laço. 
+
+```mermaid
+
+graph LR
+
+    A[Início: contador = 0] --> B{Verdade?}
+    B -- Sim --> C[Repete]
+    C --> D[executa código]
+    D --> B
+    B -- Não --> E[Fim do Laço]
+
+```
+
+Exemplo de Aplicação do While:  jogo de Adivinhação de um nº Secreto
+
+```php
+
+$numeroSecreto = rand(1,10); 
+
+$tentativas = 0;
+
+$numero = 0;
+
+while($numeroEscolhido != numeroSecreto){
+    echo "Tente Novamente"
+    //vou escolher N° para adivinhar
+    numeroEscolhido = rand(1,10);
+    tentativas++;
+}
+
+echo "Acertou miseravi!!! o n° secreto é $numeroEscolhido";
+
+```
+
+- O Laço `do-while` (Faça - enquanto)
+
+A diferença é que ele executa o bloco pelo menos uma vez, mesmo que a condução seja falsa desde o inicio, pois ele só pergunta no final.
+
+```mermaid
+
+flowchart LR
+
+    A([Inicio]) --> B[Ação]
+    B --> C{Condição}
+    C --true--> B
+    C --false--> D([Fim])
+
+    ```
+
+    Exemplo: jogo de advinhação de um n°
+
+    ```php
+    
+    $numeroSecreto = rand(1,10);
+
+    do{
+        $numeroEscolhido = rand(1,10);
+
+        if(numeroEscolhido == numeroSecreto){
+            echo "Parabéns, Acertou!!!";
+            break;
+        }
+        echo "Tente Novamente!!!";
+
+    } while(numeroEscolhido != numeroSecreto);
 
 
+    ```
+
+    #### O freio de emergencia: `break` e `continue`
+
+    As vezes precisamoso interferir no laço enquanto ele está rodando 
+
+- `break`=> **Para Tudo!** Quebra o laço interiro e avai embora
+- `continue` => **Pula a rodada!** Ele ignora o código daquela rodada especifica e pula logo par a próxima repetição.
+
+Exemplo de aplicação do codigo: Sistema de controle do elevador
+
+```php 
+
+for($andar = 1 ; $andar<=10; $andar++){
+    if($andar ==4){
+        echo "Andar $andar está em obras. Passando direto!";
+        continue;
+    }
+
+    echo "Elevador parou no andar $andar"
+}
+
+``
+---
+
+##### Laço de Repetição `for`
+
+Use o `for` quando você sabe quantas vezes precisa repetir uma ação ou quando precisa controle um contador. ele possui tres partes:
+
+- inicialização,
+- condição,
+incremento;
+
+for(inicialização; condição; incremento){}
+
+```mermaid
+
+flowchart LR
+    A[Inicio: i=0]  --> B{i<10?}
+    B --true--> C[Ação]
+    C --> D[i++]
+    D --> B
+    B --false--> E[Fim]
+
+```
+
+Exemplo: Exibir todos os mese do ano 
+
+```php
+for($me=1; $mes<=12; $mes++){
+    echo "Mês $mes";
+}
+```
+
+Nesse Exemplo, `$mes` começa em 1, o laço continua enquanto `$mes` for menos ou igual a 12 e, ao final de cada repetição, `$mes++` aumenta o contador em 1.
+
+##### Laço de repetição `foreach` 
+
+Use o `foreach` quando precisar percorrer cada item de um *array*. ele acessa os elementos diretamente, sem que você precise controlar o contador.
+
+
+```php
+
+$frutas = ["Maça", "Banana", "Uva", "Pera"];
+
+foreach($frutas as $fruta){
+    echo "Fruta: $fruta";
+}
+```
+
+Outro exemplo : acessar a chave eo valor de cada item:
+
+```php
+
+$precos = [
+    "Caderno" => 25.90,
+    "Caneta" => 5.50,
+    "Mochila" => 99.00
+]; // vetor não ordenado chave => valor
+
+foreach ($precos as $produto => $preco){
+    echo "$produto: R$ number_format($preço,2)";
+}
+```
+
+---
+---
+#### Desafio : simuladro de cobrança (FINANSENAI)
