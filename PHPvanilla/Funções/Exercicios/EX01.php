@@ -4,7 +4,7 @@ Exercicio 1
 declare(strict_types=1);
 function calcularIMC(float $peso, float $altura): float
 {
-    return $peso / (altura * altura);
+    return $peso / (altura*altura);
 }
 $imc1 = calcularIMC(60, 1.65);
 $imc2 = calcularIMC(75, 1.70);
