@@ -1082,6 +1082,28 @@ if (filter_var($ip, FILTER_VALIDATE_IP) !== false) {
 }
 ```
 
+### Semana 8 - Persistência de Dados com Banco de Dados Relacionais (PostgreSQL) e Conexão PDO
+
+**Tema:** Camada de acesso a Dados, DriverPDO(PHP Data Objects), Driver `pdo_pgsql`, Padrão Singleton, Isolamento de Credenciais(`.env` `.ini`) e Tratamento de Exceções(`PDOException`)
+
+#### **1. Da Memória Volátil ao Banco de Dados**
+
+Em sistemas corporativos de grande porte, arquivos planos (`.txt` `.json`) não oferecem a segurança , integridade, concorrencia e velocidade necessária para armazenamentos de dados. Então é aqui que o **BackEnd** encontra o **Banco de Dados Relacional**.
+
+Banco de Dados Relacional Permite:
+- Conectar a lógica de programação server-side ao sistema de gerenciamento de Banco de dados (SGBD).
+- Garantindo persisitencia definitiva e segura dos registros.
+- Aplicando integridade referencial, constrains, consultas otimizadas e produtividade e ACID aprendidas na disciplina de banco de dados.
+
+> obs: ACID:
+> Atomicidade, assegura que cada transação seja unica.
+> Consistencia, respeita todas as regras, restrições e chaves definidas, garantindo a validade da transação.
+> isolamento, transações são realizadas de forma independente.
+> Durabilidade, transações são confirmadas, garantindo persistencia permamente.
+
+
+
+
 
 
 
